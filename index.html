@@ -6,7 +6,7 @@
 <title>Quang Huy &amp; Ngọc Trinh — A Love Story</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --film-bg:#0a0806;
@@ -20,7 +20,7 @@
   body{
     background:var(--film-bg);
     color:var(--film-cream);
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     overflow-x:hidden;
     cursor: crosshair;
   }
@@ -60,7 +60,7 @@
     z-index: 9999;
     display:flex; justify-content:space-between; align-items:center;
     padding: 0 32px;
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px;
     letter-spacing:.2em;
     color: rgba(232,220,196,.5);
@@ -81,7 +81,7 @@
     z-index: 9999;
     display:flex; justify-content:space-between; align-items:center;
     padding: 0 32px;
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px;
     letter-spacing:.2em;
     color: rgba(232,220,196,.5);
@@ -122,13 +122,13 @@
   .scene-open{background: var(--film-bg)}
   .scene-open .scene-overlay{opacity:0; animation: fadeIn 2s ease 1.2s forwards}
   .scene-open .studio{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 11px; letter-spacing:.5em; text-transform:uppercase;
     color: rgba(232,220,196,.6);
     margin-bottom: 60px;
   }
   .scene-open .presents{
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     font-style: italic;
     font-size: 18px; letter-spacing:.4em;
     color: var(--film-warm);
@@ -136,7 +136,7 @@
     opacity:.8;
   }
   .scene-open .duration{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px; letter-spacing:.3em;
     color: rgba(232,220,196,.4);
     margin-top: 60px;
@@ -152,7 +152,7 @@
   .hero-scene::after{display:none}
   .hero-title{text-align:center; color: var(--film-cream)}
   .hero-loc{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 11px; letter-spacing:.5em; text-transform:uppercase;
     opacity:.8;
     margin-bottom: 60px;
@@ -161,7 +161,8 @@
     border: 1px solid rgba(232,220,196,.3);
   }
   .hero-name{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-size: clamp(60px, 13vw, 200px);
     line-height: .9;
     font-weight:400;
@@ -175,7 +176,8 @@
     animation: charUp 1.4s cubic-bezier(.2,.8,.2,1) forwards;
   }
   .hero-amp{
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Fraunces', serif;
+    font-weight:900;
     font-style: italic;
     font-size: clamp(40px, 8vw, 120px);
     color: var(--film-warm);
@@ -187,7 +189,7 @@
   @keyframes charUp{to{opacity:1; transform:translateY(0)}}
   .hero-subtitle{
     margin-top: 60px;
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     font-style: italic;
     font-size: clamp(16px, 1.4vw, 20px);
     letter-spacing:.3em;
@@ -205,7 +207,7 @@
     text-align:center;
     z-index:3;
     color: #fff;
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     font-style: italic;
     font-size: clamp(20px, 2.2vw, 30px);
     line-height:1.4;
@@ -214,7 +216,7 @@
   }
   .subtitle .speaker{
     display:block;
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-style:normal;
     font-size: 10px; letter-spacing:.4em; text-transform:uppercase;
     color: var(--film-warm);
@@ -228,14 +230,15 @@
     top: 12vh;
     left: 32px;
     z-index:3;
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px; letter-spacing:.4em; text-transform:uppercase;
     color: rgba(232,220,196,.7);
   }
   .chapter-label .num{
     color: var(--film-warm);
     font-size: 32px;
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-style: italic;
     display:block;
     margin-bottom: 8px;
@@ -272,25 +275,26 @@
     z-index:1;
   }
   .scene-dual .panel .role{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px; letter-spacing:.4em; text-transform:uppercase;
     color: var(--film-warm);
     margin-bottom: 12px;
   }
   .scene-dual .panel .pname{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-size: clamp(36px, 4vw, 56px);
     line-height: 1;
     letter-spacing: -.01em;
   }
   .scene-dual .panel .pname em{
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     font-style: italic;
     color: var(--film-warm);
     font-weight:400;
   }
   .scene-dual .panel .parent{
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     font-style:italic;
     font-size: 15px;
     margin-top: 16px;
@@ -298,7 +302,7 @@
     letter-spacing:.05em;
   }
   .scene-dual .panel .parent-addr{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px;
     margin-top: 8px;
     opacity:.55;
@@ -310,7 +314,8 @@
     top:50%; left:50%;
     transform: translate(-50%,-50%);
     z-index:5;
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-style: italic;
     font-size: 80px;
     color: var(--film-warm);
@@ -334,7 +339,8 @@
     padding: 16vh 24px;
   }
   .intermission .num-big{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-style: italic;
     font-size: clamp(120px, 20vw, 280px);
     color: var(--film-warm);
@@ -345,7 +351,7 @@
   }
   .intermission.active .num-big{opacity:.95; transform: scale(1)}
   .intermission .label{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 11px; letter-spacing:.6em; text-transform:uppercase;
     color: rgba(232,220,196,.5);
     margin-top: 40px;
@@ -354,7 +360,7 @@
   }
   .intermission.active .label{opacity:1}
   .intermission .quote{
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     font-style: italic;
     font-size: clamp(22px, 2vw, 28px);
     color: var(--film-cream);
@@ -373,7 +379,7 @@
     display:flex; flex-direction:column; align-items:center; justify-content:center;
   }
   .credits-head{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 11px; letter-spacing:.5em; text-transform:uppercase;
     color: rgba(232,220,196,.5);
     margin-bottom: 60px;
@@ -391,22 +397,23 @@
     padding-top: 40px;
   }
   .credit-block .role{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px; letter-spacing:.4em; text-transform:uppercase;
     color: var(--film-warm);
     margin-bottom: 20px;
   }
   .credit-block h3{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-size: clamp(32px, 3vw, 44px);
     color: var(--film-cream);
     font-weight: 400;
     margin-bottom: 16px;
     letter-spacing: -.01em;
   }
-  .credit-block h3 em{font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--film-warm)}
+  .credit-block h3 em{font-family:'Fraunces', serif; font-style:italic; color:var(--film-warm)}
   .credit-block .time{
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     font-style: italic;
     font-size: 20px;
     color: var(--film-cream);
@@ -414,7 +421,7 @@
     margin-bottom: 20px;
   }
   .credit-block .place{
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     font-size: 16px;
     color: var(--film-cream);
     opacity:.7;
@@ -423,7 +430,7 @@
     margin: 0 auto;
   }
   .credit-block .sub-note{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px;
     letter-spacing:.12em;
     text-transform:uppercase;
@@ -441,13 +448,14 @@
     text-align:center;
   }
   .reel-countdown .head{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 11px; letter-spacing:.5em; text-transform:uppercase;
     color: var(--film-warm);
     margin-bottom: 24px;
   }
   .reel-countdown h2{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-style: italic;
     font-size: clamp(40px, 5vw, 72px);
     color: var(--film-cream);
@@ -460,7 +468,8 @@
   }
   .reel-num{text-align:center; min-width: 100px}
   .reel-num .n{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-size: clamp(70px, 9vw, 120px);
     color: var(--film-warm);
     line-height: 1;
@@ -469,7 +478,7 @@
     text-shadow: 0 0 40px rgba(201,168,118,.2);
   }
   .reel-num .u{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px; letter-spacing:.4em; text-transform:uppercase;
     color: rgba(232,220,196,.5);
     margin-top: 20px;
@@ -482,13 +491,14 @@
     text-align:center;
   }
   .gift-scene .head{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 11px; letter-spacing:.5em; text-transform:uppercase;
     color: var(--film-warm);
     margin-bottom: 24px;
   }
   .gift-scene h2{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-style: italic;
     font-size: clamp(40px, 5vw, 64px);
     color: var(--film-cream);
@@ -496,7 +506,7 @@
     font-weight: 400;
   }
   .gift-scene .desc{
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Fraunces', serif;
     font-style: italic;
     font-size: 18px;
     color: var(--film-cream);
@@ -521,14 +531,15 @@
   .qr-frame::after{bottom:-6px; right:-6px; border-left:none; border-top:none}
   .qr-frame img{width: 200px; height: 200px; display:block}
   .qr-name{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-style:italic;
     font-size: 24px;
     color: var(--film-warm);
     margin-top: 24px;
   }
   .qr-stk{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 11px; letter-spacing:.3em;
     color: rgba(232,220,196,.6);
     margin-top: 10px;
@@ -540,7 +551,7 @@
     background: transparent;
     border: 1px solid rgba(201,168,118,.45);
     color: var(--film-warm);
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 11px; letter-spacing:.2em; text-transform:uppercase;
     padding: 12px 22px;
     transition: all .3s ease;
@@ -555,7 +566,7 @@
     margin-top: 16px;
     text-decoration:none;
     color: var(--film-warm);
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 10px; letter-spacing:.25em; text-transform:uppercase;
     border-bottom: 1px solid rgba(201,168,118,.4);
     padding-bottom: 4px;
@@ -572,7 +583,8 @@
     text-align:center;
   }
   .fin{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-style: italic;
     font-size: clamp(80px, 14vw, 160px);
     color: var(--film-warm);
@@ -581,21 +593,22 @@
     margin-bottom: 60px;
   }
   .end-credits .couple-names{
-    font-family:'DM Serif Display', serif;
+    font-family:'Fraunces', serif;
+    font-weight:900;
     font-size: clamp(28px, 3vw, 40px);
     color: var(--film-cream);
     margin-bottom: 20px;
     letter-spacing: -.01em;
   }
-  .end-credits .couple-names em{font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--film-warm)}
+  .end-credits .couple-names em{font-family:'Fraunces', serif; font-style:italic; color:var(--film-warm)}
   .end-credits .date{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 12px; letter-spacing:.5em;
     color: rgba(232,220,196,.6);
     margin-bottom: 80px;
   }
   .end-credits .copy{
-    font-family:'JetBrains Mono', monospace;
+    font-family:'Archivo', sans-serif;
     font-size: 9px; letter-spacing:.4em; text-transform:uppercase;
     color: rgba(232,220,196,.3);
   }
@@ -901,7 +914,7 @@
 
 <!-- music player -->
 <div id="bgmPlayer" style="position:fixed;bottom:11vh;right:18px;z-index:9997;display:flex;align-items:center;gap:10px;">
-  <span id="bgmLabel" style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--film-warm);text-transform:uppercase;opacity:.7;background:rgba(10,8,6,.6);padding:5px 9px;border:1px solid rgba(201,168,118,.3);backdrop-filter:blur(4px);transition:opacity .4s;">Marry You ♪</span>
+  <span id="bgmLabel" style="font-family:'Archivo',sans-serif;font-size:9px;letter-spacing:.15em;color:var(--film-warm);text-transform:uppercase;opacity:.7;background:rgba(10,8,6,.6);padding:5px 9px;border:1px solid rgba(201,168,118,.3);backdrop-filter:blur(4px);transition:opacity .4s;">Marry You ♪</span>
   <button id="bgmBtn" aria-label="Bật/tắt nhạc" style="width:44px;height:44px;border-radius:50%;border:1px solid var(--film-warm);background:rgba(10,8,6,.6);color:var(--film-warm);cursor:pointer;backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .3s;">
     <span id="bgmIcon">♫</span>
   </button>
