@@ -101,10 +101,9 @@
     background-size:cover;
     background-position:center;
     filter: contrast(1.05) saturate(.85) sepia(.18) brightness(.92);
-    transform: scale(1.08);
-    transition: transform 4s ease-out;
+    transform: scale(1.12);
+    will-change: transform;
   }
-  .scene.active .scene-img{transform:scale(1)}
   .scene::after{
     content:'';
     position:absolute; inset:0;
@@ -340,6 +339,24 @@
     flex-direction:column;
     text-align:center;
     padding: 16vh 24px;
+    position:relative;
+    overflow:hidden;
+  }
+  .intermission::before{
+    content:'';
+    position:absolute;
+    top:0; left:50%;
+    width:1px; height:14vh;
+    background:linear-gradient(var(--film-warm), transparent);
+    opacity:.4;
+  }
+  .intermission::after{
+    content:'';
+    position:absolute;
+    bottom:0; left:50%;
+    width:1px; height:14vh;
+    background:linear-gradient(transparent, var(--film-warm));
+    opacity:.4;
   }
   .intermission .num-big{
     font-family:'Fraunces', serif;
@@ -351,6 +368,21 @@
     opacity:0;
     transform: scale(.7);
     transition: all 1.6s cubic-bezier(.2,.8,.2,1);
+    position:relative;
+    z-index:2;
+    text-shadow: 0 0 80px rgba(201,168,118,.25);
+  }
+  .intermission .num-big::after{
+    content: attr(data-rom);
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%) scale(2.6);
+    font-size: inherit;
+    color: var(--film-warm);
+    opacity:.05;
+    z-index:-1;
+    white-space:nowrap;
+    pointer-events:none;
   }
   .intermission.active .num-big{opacity:.95; transform: scale(1)}
   .intermission .label{
@@ -360,6 +392,17 @@
     margin-top: 40px;
     opacity:0;
     transition: opacity 1.4s ease .6s;
+    position:relative; z-index:2;
+  }
+  .intermission .label::before,
+  .intermission .label::after{
+    content:'';
+    display:inline-block;
+    width:32px; height:1px;
+    background:var(--film-warm);
+    opacity:.5;
+    vertical-align:middle;
+    margin:0 16px;
   }
   .intermission.active .label{opacity:1}
   .intermission .quote{
@@ -468,7 +511,22 @@
     display:flex; justify-content:center; gap: clamp(24px, 5vw, 80px);
     flex-wrap: wrap;
   }
-  .reel-num{text-align:center; min-width: 100px}
+  .reel-num{
+    text-align:center; min-width: 100px;
+    padding: 24px 18px 18px;
+    border: 1px solid rgba(201,168,118,.18);
+    position:relative;
+    background: linear-gradient(180deg, rgba(201,168,118,.04), transparent);
+  }
+  .reel-num::before, .reel-num::after{
+    content:'';
+    position:absolute;
+    width:10px; height:10px;
+    border:1px solid var(--film-warm);
+    opacity:.5;
+  }
+  .reel-num::before{top:-1px; left:-1px; border-right:none; border-bottom:none}
+  .reel-num::after{bottom:-1px; right:-1px; border-left:none; border-top:none}
   .reel-num .n{
     font-family:'Fraunces', serif;
     font-weight:900;
@@ -681,7 +739,7 @@
 </section>
 
 <section class="intermission" data-scene="03" data-name="CHAPTER I">
-  <div class="num-big">I</div>
+  <div class="num-big" data-rom="I">I</div>
   <div class="label">Chapter One · How We Met</div>
   <p class="quote">"Có những người gặp nhau giữa muôn vàn ngã rẽ của cuộc đời, rồi nhận ra — chỉ cần nắm tay nhau, mọi con đường đều dẫn về nhà."</p>
 </section>
@@ -705,7 +763,7 @@
 </section>
 
 <section class="intermission" data-scene="06" data-name="CHAPTER II">
-  <div class="num-big">II</div>
+  <div class="num-big" data-rom="II">II</div>
   <div class="label">Chapter Two · The Cast</div>
   <p class="quote">"Hai nhân vật chính. Một câu chuyện. Vô số khoảnh khắc đã làm nên hôm nay."</p>
 </section>
@@ -733,7 +791,7 @@
 </section>
 
 <section class="intermission" data-scene="08" data-name="CHAPTER III">
-  <div class="num-big">III</div>
+  <div class="num-big" data-rom="III">III</div>
   <div class="label">Chapter Three · The Slow Dance</div>
   <p class="quote">"Đôi khi tình yêu không cần âm nhạc. Chỉ cần một người, một khoảnh khắc, và một bàn tay đưa ra."</p>
 </section>
@@ -757,7 +815,7 @@
 </section>
 
 <section class="intermission" data-scene="11" data-name="CHAPTER IV">
-  <div class="num-big">IV</div>
+  <div class="num-big" data-rom="IV">IV</div>
   <div class="label">Chapter Four · Production Notes</div>
   <p class="quote">"Mọi câu chuyện đều có một ngày chính thức bắt đầu. Đây là ngày của chúng mình."</p>
 </section>
@@ -855,6 +913,24 @@
   }
   window.addEventListener('scroll', updateTimecode, { passive: true });
   updateTimecode();
+
+  // Parallax nhẹ cho ảnh scene
+  const parallaxImgs = document.querySelectorAll('.scene-img');
+  let parallaxTick = false;
+  function runParallax(){
+    const vh = window.innerHeight;
+    parallaxImgs.forEach(img => {
+      const r = img.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      const prog = (r.top + r.height/2 - vh/2) / vh; // -0.5..0.5 quanh tâm
+      img.style.transform = `scale(1.12) translateY(${prog * -40}px)`;
+    });
+    parallaxTick = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!parallaxTick){ requestAnimationFrame(runParallax); parallaxTick = true; }
+  }, { passive: true });
+  runParallax();
 
   const target = new Date('2026-06-20T18:00:00+07:00').getTime();
   const pad = n => String(n).padStart(2,'0');
