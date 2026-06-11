@@ -292,7 +292,7 @@
   .scene-dual .panel .pname em{
     font-family:'Fraunces', serif;
     font-style: normal;
-    color: var(--film-warm);
+    color: #fff;
     font-weight: inherit;
   }
   .scene-dual .panel .parent{
@@ -639,6 +639,68 @@
   .map-link:hover{ color: var(--film-cream); border-color: var(--film-cream) }
   .map-link svg{ width:13px; height:13px; stroke: currentColor; fill:none; stroke-width:1.5 }
 
+  /* ===== Wishes / Lời chúc ===== */
+  .wish-scene{ background: var(--film-shadow); padding: 16vh 24px; text-align:center }
+  .wish-scene .head{
+    font-family:'Archivo', sans-serif;
+    font-size:11px; letter-spacing:.5em; text-transform:uppercase;
+    color: var(--film-warm); margin-bottom:24px;
+  }
+  .wish-scene h2{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:400;
+    font-size: clamp(36px, 5vw, 60px); color: var(--film-cream); margin-bottom:14px;
+  }
+  .wish-scene h2 em{ font-style:italic; color: var(--film-warm) }
+  .wish-scene .desc{
+    font-family:'Fraunces', serif; font-style:italic; font-size:17px;
+    color: var(--film-cream); opacity:.7; max-width:520px; margin:0 auto 44px; line-height:1.6;
+  }
+  .wish-form{ max-width:520px; margin:0 auto 56px; text-align:left }
+  .wish-form .row{ display:flex; gap:12px; margin-bottom:14px }
+  .wish-form .row .field{ flex:1 }
+  .wish-form label{
+    display:block; font-family:'Archivo',sans-serif; font-size:10px;
+    letter-spacing:.25em; text-transform:uppercase; color:rgba(232,220,196,.55); margin-bottom:7px;
+  }
+  .wish-form input, .wish-form textarea{
+    width:100%; box-sizing:border-box; background:rgba(232,220,196,.04);
+    border:1px solid rgba(201,168,118,.3); color:var(--film-cream);
+    font-family:'Fraunces', serif; font-size:16px; padding:13px 15px;
+    border-radius:2px; transition:border-color .3s ease; outline:none;
+  }
+  .wish-form input:focus, .wish-form textarea:focus{ border-color:var(--film-warm) }
+  .wish-form textarea{ resize:vertical; min-height:92px; line-height:1.5 }
+  .wish-form .hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; overflow:hidden }
+  .wish-submit{
+    margin-top:8px; width:100%; cursor:pointer;
+    background:transparent; border:1px solid var(--film-warm); color:var(--film-warm);
+    font-family:'Archivo', sans-serif; font-size:11px; letter-spacing:.25em; text-transform:uppercase;
+    padding:15px; border-radius:2px; transition:all .3s ease;
+  }
+  .wish-submit:hover{ background:rgba(201,168,118,.1) }
+  .wish-submit:disabled{ opacity:.45; cursor:not-allowed }
+  .wish-note{ font-family:'Archivo',sans-serif; font-size:11px; letter-spacing:.1em; margin-top:14px; min-height:16px; text-align:center }
+  .wish-note.ok{ color:#9cc29c } .wish-note.err{ color:#cf8b7d }
+  .wish-list{ max-width:560px; margin:0 auto; display:flex; flex-direction:column; gap:16px }
+  .wish-count{
+    font-family:'Archivo',sans-serif; font-size:10px; letter-spacing:.3em; text-transform:uppercase;
+    color:rgba(232,220,196,.45); margin-bottom:24px;
+  }
+  .wish-card{
+    background:rgba(232,220,196,.04); border:1px solid rgba(201,168,118,.18);
+    border-radius:3px; padding:20px 22px; text-align:left; position:relative;
+  }
+  .wish-card .wc-msg{ font-family:'Fraunces', serif; font-style:italic; font-size:17px; color:var(--film-cream); line-height:1.55; margin-bottom:12px; word-break:break-word }
+  .wish-card .wc-from{ font-family:'Archivo',sans-serif; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--film-warm) }
+  .wish-card .wc-del{
+    position:absolute; top:14px; right:14px; cursor:pointer; background:none; border:none;
+    color:rgba(232,220,196,.35); font-size:18px; line-height:1; padding:4px; transition:color .25s ease; display:none;
+  }
+  .wish-card .wc-del:hover{ color:#cf8b7d }
+  body.admin .wish-card .wc-del{ display:block }
+  .wish-empty{ font-family:'Fraunces',serif; font-style:italic; color:rgba(232,220,196,.4); font-size:16px }
+  @media (max-width:560px){ .wish-form .row{ flex-direction:column; gap:14px } }
+
   .end-credits{
     background: var(--film-bg);
     min-height: 100vh;
@@ -870,7 +932,36 @@
   </button>
 </section>
 
-<section class="end-credits" data-scene="15" data-name="FIN">
+<section class="wish-scene" data-scene="15" data-name="WISHES">
+  <div class="head">— Sổ Lưu Bút —</div>
+  <h2>Gửi <em>lời chúc phúc</em></h2>
+  <p class="desc">Một dòng chúc nhỏ từ bạn sẽ là món quà tinh thần chúng mình giữ mãi. Hãy để lại đôi lời nhé!</p>
+
+  <div class="wish-form">
+    <div class="row">
+      <div class="field">
+        <label for="wName">Tên của bạn</label>
+        <input id="wName" type="text" maxlength="40" placeholder="Vd: Gia đình cô Tư" autocomplete="off">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="wMsg">Lời chúc</label>
+        <textarea id="wMsg" maxlength="280" placeholder="Chúc hai bạn trăm năm hạnh phúc..."></textarea>
+      </div>
+    </div>
+    <input class="hp" type="text" id="wHp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="wish-submit" id="wSubmit" type="button">Gửi lời chúc</button>
+    <div class="wish-note" id="wNote"></div>
+  </div>
+
+  <div class="wish-count" id="wCount"></div>
+  <div class="wish-list" id="wList">
+    <div class="wish-empty" id="wEmpty">Hãy là người đầu tiên gửi lời chúc 💌</div>
+  </div>
+</section>
+
+<section class="end-credits" data-scene="16" data-name="FIN">
   <div class="fin">Fin.</div>
   <div class="couple-names">Quang Huy <em>&amp;</em> Ngọc Trinh</div>
   <div class="date">20 · 06 · 2026</div>
@@ -1017,6 +1108,93 @@
   document.addEventListener('click',arm,{once:false});
   document.addEventListener('touchstart',arm,{once:false});
   document.addEventListener('scroll',arm,{once:false});
+})();
+</script>
+
+<script>
+/* ===== Lời chúc phúc — Cloudflare D1 backend ===== */
+(function(){
+  var API = '/api/wishes';
+  var nameEl = document.getElementById('wName');
+  var msgEl  = document.getElementById('wMsg');
+  var hpEl   = document.getElementById('wHp');
+  var btn    = document.getElementById('wSubmit');
+  var note   = document.getElementById('wNote');
+  var list   = document.getElementById('wList');
+  var empty  = document.getElementById('wEmpty');
+  var count  = document.getElementById('wCount');
+
+  // Chế độ admin: thêm ?admin=KEY vào URL để hiện nút xoá
+  var adminKey = new URLSearchParams(location.search).get('admin') || '';
+  if(adminKey){ document.body.classList.add('admin'); }
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  function setNote(t, ok){ note.textContent=t; note.className='wish-note '+(ok?'ok':'err'); }
+
+  function render(items){
+    list.innerHTML='';
+    if(!items || !items.length){
+      var e=document.createElement('div'); e.className='wish-empty';
+      e.textContent='Hãy là người đầu tiên gửi lời chúc 💌'; list.appendChild(e);
+      count.textContent=''; return;
+    }
+    count.textContent=items.length+' lời chúc';
+    items.forEach(function(w){
+      var card=document.createElement('div'); card.className='wish-card';
+      var del = adminKey ? '<button class="wc-del" data-id="'+w.id+'" title="Xoá">×</button>' : '';
+      card.innerHTML = del +
+        '<div class="wc-msg">'+esc(w.message)+'</div>'+
+        '<div class="wc-from">— '+esc(w.name)+'</div>';
+      list.appendChild(card);
+    });
+    if(adminKey){
+      list.querySelectorAll('.wc-del').forEach(function(b){
+        b.addEventListener('click', function(){ delWish(b.dataset.id); });
+      });
+    }
+  }
+
+  function load(){
+    fetch(API).then(function(r){return r.json();})
+      .then(function(d){ render(d.wishes||[]); })
+      .catch(function(){ /* im lặng nếu lỗi mạng */ });
+  }
+
+  var sending=false;
+  function submit(){
+    if(sending) return;
+    var name=(nameEl.value||'').trim();
+    var msg=(msgEl.value||'').trim();
+    if(hpEl.value){ return; } // bot dính honeypot -> bỏ qua âm thầm
+    if(name.length<2){ setNote('Bạn nhập tên giúp mình nha', false); return; }
+    if(msg.length<2){ setNote('Lời chúc còn trống kìa', false); return; }
+    sending=true; btn.disabled=true; setNote('Đang gửi...', true);
+    fetch(API, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ name:name, message:msg, hp:hpEl.value })
+    }).then(function(r){ return r.json().then(function(d){ return {ok:r.ok, d:d}; }); })
+    .then(function(res){
+      if(res.ok){
+        setNote('Cảm ơn lời chúc của bạn 💛', true);
+        nameEl.value=''; msgEl.value=''; load();
+      } else {
+        setNote(res.d.error || 'Có lỗi xảy ra, thử lại nhé', false);
+      }
+    }).catch(function(){ setNote('Mất kết nối, thử lại sau nhé', false); })
+    .finally(function(){ sending=false; btn.disabled=false; });
+  }
+
+  function delWish(id){
+    if(!confirm('Xoá lời chúc này?')) return;
+    fetch(API+'?id='+encodeURIComponent(id)+'&admin='+encodeURIComponent(adminKey), {method:'DELETE'})
+      .then(function(r){ if(r.ok){ load(); } else { alert('Xoá thất bại'); } })
+      .catch(function(){ alert('Lỗi kết nối'); });
+  }
+
+  btn.addEventListener('click', submit);
+  load();
 })();
 </script>
 
